@@ -1138,7 +1138,7 @@ h6 {
 
 .contact .php-email-form input:focus,
 .contact .php-email-form textarea:focus {
-  border-color: #4154f1;
+  border-color: #41f1b6;
 }
 
 .contact .php-email-form input {
@@ -1150,7 +1150,7 @@ h6 {
 }
 
 .contact .php-email-form button[type=submit] {
-  background: #4154f1;
+  background: #41f199;
   border: 0;
   padding: 10px 30px;
   color: #fff;
@@ -1159,7 +1159,7 @@ h6 {
 }
 
 .contact .php-email-form button[type=submit]:hover {
-  background: #5969f3;
+  background: #2cce9b;
 }
 
 @keyframes animate-loading {

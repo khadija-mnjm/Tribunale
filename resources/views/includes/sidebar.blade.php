@@ -32,7 +32,7 @@
         <ul class="sidebar-nav" id="sidebar-nav">
     
           <li class="nav-item">
-            <a class="nav-link " href="index.html">
+            <a class="nav-link " href="{{ route('dashboard') }}">
               <i class="bi bi-grid"></i>
               <span>Dashboard</span>
             </a>
@@ -40,7 +40,7 @@
     
          
      <li class="nav-item">
-      <a class="nav-link collapsed" href="pages-register.html">
+      <a class="nav-link collapsed" href="{{ route('list-dossiers') }}">
         <i class="ri-list-check"></i>
         <span>List Dossiers</span>
       </a>

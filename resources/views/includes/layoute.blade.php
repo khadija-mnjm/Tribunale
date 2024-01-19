@@ -36,14 +36,13 @@
    
     <main>
         @yield('content')
-       {{--@include('includes.main')--}} 
+        {{--@include('includes.main')
+        @include('includes.ajouter')--}}
     </main>
-    <main>
-        @yield('content')
-        @include('includes.main')
-    </main>
+   
     <footer>
-        @include('includes.footer')
+        {{--@include('includes.footer')--}}
+        @include('includes.dataTables')
     </footer>
     <!-- Vendor JS Files -->
         <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>

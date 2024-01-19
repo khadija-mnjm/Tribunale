@@ -17,15 +17,15 @@ class UtilisateurSeeder extends Seeder
     public function run()
     {
         DB::table('utilisateurs')->insert([
-            'login' => 'admin',
+            'login' => 'admin@gmail.com',
             'password' => Hash::make('admin'),
-            'typeU' => 'admin',
+            'typeUtilisateur' => 'admin',
         ]);
 
         DB::table('utilisateurs')->insert([
-            'login' => 'user',
+            'login' => 'user@gmail.com',
             'password' => Hash::make('user'),
-            'typeU' => 'utilisateur',
+            'typeUtilisateur' => 'utilisateur',
         ]);
     }
 }

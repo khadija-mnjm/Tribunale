@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\utilisateur;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class UtilisateurController extends Controller
 {
     /**
@@ -14,72 +14,49 @@ class UtilisateurController extends Controller
      */
     public function index()
     {
-        //
+        return view('login');
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Attempt to authenticate the user.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function login(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required',
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\utilisateur  $utilisateur
-     * @return \Illuminate\Http\Response
-     */
-    public function show(utilisateur $utilisateur)
-    {
-        //
-    }
+        $credentials = [
+            'login' => $request->input('username'),
+            'password' => $request->input('password'),
+        ];
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\utilisateur  $utilisateur
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(utilisateur $utilisateur)
-    {
-        //
-    }
+        $userExists = Utilisateur::where('login', $credentials['login'])->exists();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\utilisateur  $utilisateur
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, utilisateur $utilisateur)
-    {
-        //
-    }
+        if (!$userExists) {
+            return redirect()->back()->withErrors(['login' => 'Invalid login credentials'])
+                ->withInput($request->only('username'));
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\utilisateur  $utilisateur
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(utilisateur $utilisateur)
-    {
-        //
+        if (Auth::attempt($credentials)) {
+            // Authentication passed
+            return redirect()->route('dashboard'); // Replace with your dashboard route
+        }
+
+        // Authentication failed
+        return redirect()->back()->withErrors(['login' => 'Invalid login credentials'])
+            ->withInput($request->only('username'));
     }
+    public function dashboard()
+    {
+        // You can add any logic you need here
+
+        return view('includes.layoute'); // Assuming your dashboard view is in the 'includes' folder
+    }
+    
+    
 }
