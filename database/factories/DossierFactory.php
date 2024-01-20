@@ -16,27 +16,21 @@ class DossierFactory extends Factory
     public function definition()
     {
         return [
-            'numeroD' => $this->faker->randomNumber(5),
-            'avocat_id' => function () {
-                return \App\Models\Avocat::factory()->create()->id;
-            },
-            'commission' => $this->faker->word,
-            'dateDossier' => $this->faker->date,
-            'refJuridique' => $this->faker->word,
-            'refDecision' => $this->faker->word,
-            'tribunale_id' => function () {
-                return \App\Models\Tribunale::factory()->create()->id;
-            },
-            'benificier_id' => function () {
-                return \App\Models\Benificier::factory()->create()->id;
-            },
-            'dateAideJustice' => $this->faker->date,
-            'prix' => $this->faker->randomFloat(2, 100, 1000),
-            'validate' => $this->faker->boolean,
-            'refPerfermance' => $this->faker->word,
-            'refEngagement' => $this->faker->word,
-            'refEditions' => $this->faker->word,
-            'date_ds_aide_etat' => $this->faker->date,
+            'numeroD' => fake()->numberBetween(1, 30),
+            'avocat_id' => fake()->numberBetween(8, 13),
+            'commission' => fake()->city, 
+            'dateDossier' => fake()->dateTime, 
+            'refJuridique' => fake()->word, 
+            'refDecision' => fake()->word,
+            'tribunale_id' => fake()->numberBetween(1, 4),
+            'benificier_id' => fake()->numberBetween(1, 5),
+            'dateAideJustice' => fake()->dateTime,
+            'prix' => fake()->numberBetween(2000, 3500),
+            'validate' => fake()->randomElement(['oui', 'non']),
+            'refPerfermance' => fake()->word,
+            'refEngagement' => fake()->word,
+            'refEditions' => fake()->word,
+            'date_ds_aide_etat' => fake()->dateTime,
         ];
     }
 }

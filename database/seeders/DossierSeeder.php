@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\dossier;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class SeederDossiers extends Seeder
+class DossierSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +15,6 @@ class SeederDossiers extends Seeder
      */
     public function run()
     {
-        //
+        dossier::Factory()->count(30)->create();
     }
 }

@@ -23,7 +23,7 @@ return new class extends Migration
             $table->foreignId('benificier_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->date('dateAideJustice');
             $table->float('prix');
-            $table->boolean('validate');
+            $table->enum('validate',['oui','non']);
             $table->string('refPerfermance');
             $table->string('refEngagement');
             $table->string('refEditions');

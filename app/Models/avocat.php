@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class avocat extends Model
 {
+    protected $fillable = ['nomV','villeV','adresseV'];
     use HasFactory;
 }

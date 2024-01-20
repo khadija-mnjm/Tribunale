@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class benificier extends Model
 {
+    protected $fillable = [
+        'nomB',
+        'prenomB',
+        'villeB',
+    ];
     use HasFactory;
 }
