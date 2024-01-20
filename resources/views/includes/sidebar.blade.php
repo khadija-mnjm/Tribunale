@@ -23,7 +23,6 @@
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 </head>
 <body>
@@ -36,13 +35,19 @@
               <i class="bi bi-grid"></i>
               <span>Dashboard</span>
             </a>
-          </li><!-- End Dashboard Nav -->
+          </li>
     
          
      <li class="nav-item">
       <a class="nav-link collapsed" href="{{ route('list-dossiers') }}">
         <i class="ri-list-check"></i>
         <span>List Dossiers</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link collapsed " href="{{ route('benificiers') }}">
+        <i class="ri-group-line"></i>
+        <span>List Benificier</span>
       </a>
     </li>
           <li class="nav-item">
@@ -55,6 +60,6 @@
           
         </ul>
     
-      </aside><!-- End Sidebar-->
+      </aside>
 </body>
 </html>

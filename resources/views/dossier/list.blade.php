@@ -30,17 +30,98 @@
     <header>
         @include('includes.header')
         @include('includes.sidebar')
+        
     </header>
     <footer>
         <main id="main" class="main">
+          <h5 class="titredesign">
+             <span>Ministère de la Justice,</span><br/> Enregistre les sommes dues aux avocats commis d'office dans le cadre <br/> de l'aide judiciaire, qui sont détenues par le donneur d'ordre du déboursement des assistants.</h5>
             <div class="pagetitle">
                 <div class="text-center mt-3">
-                    <a href="{{ route('add') }}" class="btn btn-success">Ajouter Dossier </a>
-                </div>
+                  <a href="{{ route('add') }}" class="btn btn-success">
+                     Ajouter Dossier
+                  </a></div>
     
             </div>
+            <div class="container1">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card2">
+            <div class="card-body1">
+              <h5 class="card-title">Listes des Dossiers</h5>
+              
+              <table class="table datatable">
+                <thead>
+                  <tr>
+                    <th>
+                      <b>N</b>umero 
+                    </th>
+                    <th>nom Avocat</th>
+                    <th data-type="date" data-format="YYYY/DD/MM">date</th>
+                    <th>RefJuridique</th>
+                    <th>RefDecission</th>
+                    <th>Tribunale </th>
+                    <th>Prix</th>
+                    <th>Benificier</th>
+                    <th>Validate</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>salma</td>
+                    <td>9958</td>
+                    <td>Curicó</td>
+                    <td>2005/02/11</td>
+                    <td>37%</td>
+                    <td>salma</td>
+                    <td>9958</td>
+                    <td>Curicó</td>
+                    <td>2005/02/11</td>
+                    
+                   
+                  </tr>
+                  <tr>
+                    <td>salma</td>
+                    <td>9958</td>
+                    <td>Curicó</td>
+                    <td>2005/02/11</td>
+                    <td>37%</td>
+                    <td>salma</td>
+                    <td>9958</td>
+                    <td>Curicó</td>
+                    <td>2005/02/11</td>
+                    
+                   
+                  </tr>
+                  
+              
+                 
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  
+
         </main>
     </footer>
   
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="assets/vendor/echarts/echarts.min.js"></script>
+  <script src="assets/vendor/quill/quill.min.js"></script>
+  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

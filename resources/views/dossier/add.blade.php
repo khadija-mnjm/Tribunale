@@ -34,12 +34,12 @@
     <footer>
         <main id="main" class="main">
         <div class="pagetitle">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Please saiser les informations de dossiers :</h5>
+        <div class="cardadd">
+            <div class="card-bodyadd">
+                <h5 class="card-title">Saiser les informations de dossiers :</h5>
         
                 
-                <form class="row g-3">
+                <form class="row g-3" action="{{ route('submit.form') }}">
                   <div class="col-md-12">
                     <input type="number" class="form-control" placeholder="Numero Dossier">
                   </div>
@@ -79,7 +79,7 @@
                   </div>
                  
                   <div class="text-center">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-success">Submit</button>
                     <button type="reset" class="btn btn-secondary">Reset</button>
                   </div>
                 </form><!-- End No Labels Form -->

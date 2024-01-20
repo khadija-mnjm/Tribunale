@@ -12,74 +12,26 @@ class BenificierController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+   
+     public function index()
+     { 
+        $benificiers = Benificier::all();
+        return view('benificier.list', ['benificiers' => $benificiers]);    
+     }
+     public function ajouterbenificier()
+     {
+        return view('benificier.add');
+     }
+     public function store(Request $request)
     {
-        //
-    }
+        $validatedData = $request->validate([
+            'nomB' => 'required|string|max:255',
+            'prenomB' => 'required|string|max:255',
+            'villeB' => 'required|string|max:255',
+        ]);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+        Benificier::create($validatedData);
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\benificier  $benificier
-     * @return \Illuminate\Http\Response
-     */
-    public function show(benificier $benificier)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\benificier  $benificier
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(benificier $benificier)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\benificier  $benificier
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, benificier $benificier)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\benificier  $benificier
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(benificier $benificier)
-    {
-        //
+        return redirect()->route('benificiers')->with('success', 'Benificier added successfully!');
     }
 }

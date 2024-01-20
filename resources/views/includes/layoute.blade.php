@@ -42,7 +42,7 @@
    
     <footer>
         {{--@include('includes.footer')--}}
-        @include('includes.dataTables')
+        {{--@include('includes.dataTables')--}}
     </footer>
     <!-- Vendor JS Files -->
         <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>

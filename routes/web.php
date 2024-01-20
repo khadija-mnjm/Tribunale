@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UtilisateurController;
 use App\Http\Controllers\DossierController;
+use App\Http\Controllers\BenificierController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,5 +18,12 @@ use App\Http\Controllers\DossierController;
 Route::get('/', [UtilisateurController::class, 'index'])->name('login');
 Route::post('/login', [UtilisateurController::class, 'login'])->name('login');
 Route::get('/dashboard', [UtilisateurController::class, 'dashboard'])->name('dashboard');
+
 Route::get('/list-dossiers', [DossierController::class, 'listDossiers'])->name('list-dossiers');
 Route::get('/add', [DossierController::class, 'addDossier'])->name('add');
+Route::post('/submit-form', [DossierController::class, 'store'])->name('submit.form');
+
+Route::get('/benificiers', [BenificierController::class, 'index'])->name('benificiers');
+Route::get('/ajouterBenificier', [BenificierController::class, 'ajouterbenificier'])->name('ajouterbenificier');
+Route::post('/submit-formbenificier', [BenificierController::class, 'store'])->name('submit.formbenificier');
+Route::post('/benificier/store', [BenificierController::class, 'store'])->name('benificier.store');
