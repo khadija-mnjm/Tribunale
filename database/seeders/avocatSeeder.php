@@ -33,4 +33,8 @@ class avocatSeeder extends Seeder
             'adresseV'=>'ouarzazate sididaoud av.M6'
         ]]);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 3fed80dfd5462769f00802f8cf582bf5249d873c

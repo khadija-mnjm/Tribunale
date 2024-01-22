@@ -33,7 +33,7 @@
     </header>
     <footer>
         <main id="main" class="main">
-        <div class="pagetitle">
+        <div class="pagetitle1">
         <div class="cardadd">
             <div class="card-bodyadd">
                 <h5 class="card-title">Saiser les informations de dossiers :</h5>

@@ -13,10 +13,12 @@ class DossierController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function listDossiers()
-    {
-        
-        return view('dossier.list');
-    }
+     { 
+        $dossiers = dossier::with('avocat','tribunale')->get();
+        //dd($dossiers->toArray());
+        return view('dossier.list', ['dossiers' => $dossiers]);    
+     }
+   
     public function addDossier()
     {
         return view('dossier.add');
@@ -51,7 +53,10 @@ class DossierController extends Controller
             return redirect()->route('submit.form')->with('error', 'Error adding dossier. Please try again.');
         }
     }
-
+    public function show(dossier $dossier)
+    {
+        return view('dossier.show', compact('dossier'));
+    }
     
 
     

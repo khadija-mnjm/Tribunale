@@ -15,16 +15,16 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   
     <!-- Vendor CSS Files -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
-    <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+    <link href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/vendor/boxicons/css/boxicons.min.css')}}"rel="stylesheet">
+    <link href="{{asset('assets/vendor/quill/quill.snow.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/vendor/quill/quill.bubble.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/vendor/simple-datatables/style.css')}}" rel="stylesheet">
   
     <!-- Template Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="{{asset('assets/css/style.css" rel="stylesheet')}} ">
 </head>
 <body>
     <header>
@@ -35,15 +35,19 @@
     <footer>
         <main id="main" class="main">
           <h5 class="titredesign">
-             <span>Ministère de la Justice,</span><br/> Enregistre les sommes dues aux avocats commis d'office dans le cadre <br/> de l'aide judiciaire, qui sont détenues par le donneur d'ordre du déboursement des assistants.</h5>
+             <span >Ministère de la Justice,</span><br/>Enregistre les sommes dues aux avocats commis <br/>d'office dans le cadre  de l'aide judiciaire, qui sont 
+             <br/>détenues par le donneur d'ordre du déboursement des assistants.
+            </h5>
             <div class="pagetitle">
                 <div class="text-center mt-3">
                   <a href="{{ route('add') }}" class="btn btn-success">
                      Ajouter Dossier
                   </a></div>
-    
+                 
             </div>
+            
             <div class="container1">
+            
       <div class="row">
         <div class="col-lg-12">
 
@@ -68,36 +72,25 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>salma</td>
-                    <td>9958</td>
-                    <td>Curicó</td>
-                    <td>2005/02/11</td>
-                    <td>37%</td>
-                    <td>salma</td>
-                    <td>9958</td>
-                    <td>Curicó</td>
-                    <td>2005/02/11</td>
-                    
-                   
-                  </tr>
-                  <tr>
-                    <td>salma</td>
-                    <td>9958</td>
-                    <td>Curicó</td>
-                    <td>2005/02/11</td>
-                    <td>37%</td>
-                    <td>salma</td>
-                    <td>9958</td>
-                    <td>Curicó</td>
-                    <td>2005/02/11</td>
-                    
-                   
-                  </tr>
-                  
-              
-                 
-                </tbody>
+                  @foreach($dossiers as $dossier)
+                      <tr>
+                          <td>{{ $dossier->numeroD }}</td>
+                          <td>{{ $dossier->avocat->nomV }}</td>
+                          <td>{{ $dossier->dateDossier }}</td>
+                          <td>{{ $dossier->refJuridique }}</td>
+                          <td>{{ $dossier->refDecision }}</td>
+                          <td>{{ $dossier->tribunale->typeTribunale }}</td>
+                          <td>{{ $dossier->prix }}</td>
+                          <td>{{ $dossier->benificier->nomB }} {{ $dossier->benificier->prenomB }}</td>
+                          <td>{{ $dossier->validate }}
+                            <a href="{{ route('dossier.show', $dossier->id) }}" class="btn btn-sm " title="Afficher les détails">
+                              <i class="bi bi-eye" style="font-size: 20px; color: blue;"></i>
+
+                          </a>
+                          </td>
+                      </tr>
+                  @endforeach
+              </tbody>
               </table>
 
             </div>
@@ -123,5 +116,6 @@
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="path/to/explosion-animation.js"></script>
 </body>
 </html>

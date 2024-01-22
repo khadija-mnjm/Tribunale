@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class benificier extends Model
+class Benificier extends Model
 {
     use HasFactory;
+
     protected $table = 'benificiers';
 
     /**
@@ -20,11 +21,4 @@ class benificier extends Model
         'prenomB',
         'villeB',
     ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-   
 }

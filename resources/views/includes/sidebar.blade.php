@@ -56,7 +56,24 @@
               <span>Contact</span>
             </a>
           </li>
-    
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="pages-contact.html">
+              <i class="bi bi-chat"></i>
+              <span>Messages </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="pages-contact.html">
+              <i class="bi bi-camera-reels-fill"></i>
+              <span>Meetting  </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="pages-contact.html">
+              <i class="bi bi-box-arrow-in-right"></i>
+              <span>logOut </span>
+            </a>
+          </li>
           
         </ul>
     

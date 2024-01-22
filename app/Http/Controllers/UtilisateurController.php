@@ -57,6 +57,11 @@ class UtilisateurController extends Controller
 
         return view('includes.layoute'); // Assuming your dashboard view is in the 'includes' folder
     }
+    public function profile()
+    {
+        // Assuming you have a 'profile.blade.php' file in the 'include/profile' directory
+        return view('includes.profile');
+    }
     
     
 }

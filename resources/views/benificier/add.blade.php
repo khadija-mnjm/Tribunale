@@ -34,7 +34,7 @@
     </header>
     <footer>
         <main id="main" class="main">
-            <div class="pagetitle">
+            <div class="pagetitle1">
                 <div class="cardadd">
                     <div class="card-bodyadd">
                         @if(session('success'))

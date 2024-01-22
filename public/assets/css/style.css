@@ -60,38 +60,68 @@ h6 {
 
 
 .titredesign {
-  font-family: 'Helvetica Neue', sans-serif; /* Change the font-family as needed */
-  font-weight: 400; /* Adjust font weight if needed */
-  color: #000000; /* Text color */
-  text-shadow: 2px 2px 4px rgba(115, 206, 153, 0.8); /* Text shadow */
-  white-space: nowrap; /* Prevent line break */
-  overflow: hidden; /* Hide overflowed text */
-  animation: typing 5s steps(40) forwards; /* Typewriter animation */
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+  color: #000000;
+  white-space: nowrap;
+  overflow: hidden;
   align-items: center;
   text-align: center;
+  position: relative; /* Set position to relative for absolute positioning of explosion canvas */
 }
 
 .titredesign span {
-  display: inline-block; 
+  display: inline-block;
   color: #017049;
-  opacity: 0; /* Set initial opacity to 0 for fade-in effect */
-  animation: fadeIn 2s ease forwards; /* Fade-in animation */
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
 }
 
 @keyframes fadeIn {
   from {
-    opacity: 0;
+      opacity: 0;
   }
   to {
-    opacity: 1;
+      opacity: 1;
   }
 }
-/* Appliquer l'animation à la balise h4 */
 .titredesign {
-  animation: fadeIn 1.5s ease-out;
+  overflow: hidden; /* Pour masquer le texte initial */
+  border-right: .15em solid orange; /* Animation du curseur de machine à écrire */
+  white-space: nowrap; /* Empêche le saut de ligne */
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 192, 48, 0.5);/* Pour éviter un espacement supplémentaire */
+  letter-spacing: .15em; /* Espacement entre les caractères, ajustez selon vos préférences */
+  animation:
+    typing 3.5s steps(40, end), /* Durée et nombre d'étapes de l'animation */
+    blink-caret .75s step-end infinite; /* Animation du curseur clignotant */
+
 }
+
+/* Animation de la machine à écrire */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Animation du curseur clignotant */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent; /* Le curseur est invisible à l'origine */
+  }
+  50% {
+    border-color: orange; /* Le curseur est visible à mi-chemin de l'animation */
+  }
+}
+
 .pagetitle {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+  margin-left: -85%;
 }
 .cardLogin{
   width: 300px;
@@ -277,7 +307,13 @@ h6 {
   color: #017049;
   font-family: "Poppins", sans-serif;
 }
-
+.card-title1 {
+  padding: 30px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #017049;
+  font-family: "Poppins", sans-serif;
+}
 .card-title span {
   color: #899bbd;
   font-size: 14px;
@@ -466,6 +502,8 @@ h6 {
 
 .header .search-bar {
   min-width: 500px;
+  margin-left: 10%;
+  display: flex;
 }
 
 @media (max-width: 1199px) {
@@ -1324,16 +1362,17 @@ h6 {
   color: #0b410d;
 }
 .pagetitle1 a {
-  border: 2px solid #003830;
-  background-color: #ffffff;
-  color:  #003830;
+  border: 2px solid #008830;
+  background-color: #008e28;
+  color:  #ffffff;
+  text-align: center;
   width: 100px;
   height: 30px;
   border-radius:10px;
   padding: 6px;
+  margin-left: -80%;
   transition: background-color 0.3s ease; 
-  margin-right:80% ;
-  margin-bottom: 30%;
+  margin-bottom: -80%;
 }
 
 .pagetitle1 a:hover {
@@ -1354,7 +1393,7 @@ h6 {
 
 
 .pagetitle1 {
-  margin-bottom: 10px;
+  margin-bottom: 100px;
 }
 
 .pagetitle1 h1 {
@@ -1365,4 +1404,13 @@ h6 {
 }
 .container2{
   padding: 10px;
+}
+.larger-icon {
+  font-size: 1.4em;
+  color: #2f26a6; /* Adjust the font size as needed */
+}
+.btnExport{
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-top: -8%;
 }

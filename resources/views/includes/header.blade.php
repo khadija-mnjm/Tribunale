@@ -35,10 +35,11 @@
             <img src="assets/img/logo.png" alt="">
             <span class="textlogo">Cour<br/> d’Appel</span>
           </a>
-          <i class="bi bi-list toggle-sidebar-btn"></i>
+         
         </div><!-- End Logo -->
-    
         <div class="search-bar">
+    <i class="bi bi-list toggle-sidebar-btn"></i>
+          
           <form class="search-form d-flex align-items-center" method="POST" action="#">
             <input type="text" name="query" placeholder="Recherche" title="Enter search keyword">
             <button type="submit" title="Search"><i class="bi bi-search"></i></button>
@@ -196,13 +197,11 @@
               
                
                 
-      
               <li class="nav-item dropdown pe-3">
-                <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-                  <i class="bi bi-person"></i> <!-- This is the user icon -->
-                  <span class="badge bg-success badge-number">3</span>
-              </a>
-              </li>
+                <a class="nav-link nav-icon" href="{{ route('profile') }}" data-bs-toggle="dropdown">
+                    <i class="bi bi-person larger-icon"></i> Profile
+                </a>
+            </li>
       <!-- End Profile Nav
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                   <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
@@ -261,5 +260,6 @@
             </ul>
           </nav><!-- End Icons Navigation -->
     </header>
+    <script src="path/to/explosion-animation.js"></script>
 </body>
 </html>
