@@ -69,7 +69,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-contact.html">
+            <a class="nav-link collapsed"  href="{{ route('logout') }}">
               <i class="bi bi-box-arrow-in-right"></i>
               <span>logOut </span>
             </a>
