@@ -33,7 +33,7 @@ Route::post('/benificier/store', [BenificierController::class, 'store'])->name('
 // Authentication Routes
 Route::get('/', [UtilisateurController::class, 'index'])->name('login');
 Route::post('/login', [UtilisateurController::class, 'login'])->name('login');
-
+Route::post('/logout', [UtilisateurController::class, 'logout'])->name('logout');
 // User Dashboard and Profile Routes
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [UtilisateurController::class, 'dashboard'])->name('dashboard');

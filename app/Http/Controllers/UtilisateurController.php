@@ -62,6 +62,16 @@ class UtilisateurController extends Controller
         // Assuming you have a 'profile.blade.php' file in the 'include/profile' directory
         return view('includes.profile');
     }
-    
+    public function logout()
+    {
+        // Check if the confirmation parameter is set to true
+        if (request('confirm') == 'true') {
+            Auth::logout();
+            return redirect()->route('login'); // Redirect to the login page after logout
+        } else {
+            // Redirect back with a confirmation parameter
+            return redirect()->back()->with('confirm', true);
+        }
+    }
     
 }
