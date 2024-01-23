@@ -5,25 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
-      
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
-  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
-
-  <link href="assets/css/style.css" rel="stylesheet">
+    <style>
+      /* Votre style CSS actuel */
+      .sidebar-nav .nav-item.active {
+          background-color: #007bff;
+          color: #fff;
+      }
+  </style>
 </head>
 <body>
     <aside id="sidebar" class="sidebar">
@@ -70,13 +58,37 @@
           </li>
           <li class="nav-item">
             <a class="nav-link collapsed"  href="{{ route('logout') }}">
-              <i class="bi bi-box-arrow-in-right"></i>
-              <span>logOut </span>
+              <i class="bi bi-box-arrow-left bi-2x"></i>
+
+              <span>Déconexion </span>
             </a>
           </li>
           
         </ul>
     
       </aside>
+      <script>
+        // Script pour gérer le changement d'état au clic
+        document.addEventListener('DOMContentLoaded', function () {
+            var sidebarNav = document.getElementById('sidebar-nav');
+            var navItems = sidebarNav.getElementsByClassName('nav-item');
+
+            for (var i = 0; i < navItems.length; i++) {
+                navItems[i].addEventListener('click', function () {
+                    // Supprimer la classe 'active' de tous les éléments
+                    for (var j = 0; j < navItems.length; j++) {
+                        navItems[j].classList.remove('active');
+                        // Retirer la classe 'collapsed' de tous les éléments
+                        navItems[j].classList.remove('collapsed');
+                    }
+
+                    // Ajouter la classe 'active' à l'élément cliqué
+                    this.classList.add('active');
+                    // Ajouter la classe 'collapsed' à l'élément cliqué
+                    this.classList.add('collapsed');
+                });
+            }
+        });
+    </script>
 </body>
 </html>

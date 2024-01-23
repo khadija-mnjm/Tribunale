@@ -6,43 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
 
-    <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- Include DataTables CSS and JS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.0/css/buttons.dataTables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css"/>
+    
+    <!-- Include Simple DataTables CSS and JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@2.6.2/dist/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@2.6.2/dist/simple-datatables.js"></script>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.gstatic.com" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Include Moment.js for date formatting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
-    <!-- Vendor CSS Files -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
-    <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+    <!-- Export Buttons JS -->
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.0.0/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- Template Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet">
-
-    <!-- Vendor JS Files -->
-    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/chart.js/chart.umd.js"></script>
-    <script src="assets/vendor/echarts/echarts.min.js"></script>
-    <script src="assets/vendor/quill/quill.min.js"></script>
-    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-    <script src="assets/js/main.js"></script>
 </head>
 <body>
-    <header>
-        @include('includes.header')
-        @include('includes.sidebar')
-    </header>
+    @include('includes.layoute')
+    @section('content')
     <footer>
         <div class="container2">
             <main id="main" class="main">
@@ -67,7 +51,7 @@
                                 <div class="card-body1">
                                     <h5 class="card-title">Listes des benificiers</h5>
                                    
-                                    <table class="table datatable">
+                                    <table class="table datatable" id="benificiersTable">
                                         <thead>
                                             <tr>
                                                 <th><b>N</b>umero</th>
@@ -99,21 +83,9 @@
     </footer>
 
     <!-- Export Buttons Script -->
-    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/chart.js/chart.umd.js"></script>
-    <script src="assets/vendor/echarts/echarts.min.js"></script>
-    <script src="assets/vendor/quill/quill.min.js"></script>
-    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-    <script src="assets/js/main.js"></script>
-
-    <!-- Export Buttons Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const table = new DataTable("#benificiersTable");
+            const table = new simpleDatatables.DataTable("#benificiersTable");
 
             document.getElementById("export-csv").addEventListener("click", () => {
                 exportCSV(table, {
@@ -147,6 +119,19 @@
                 exportCustomCSV(table, {
                     download: true
                 });
+            });
+        });
+    </script>
+
+    <!-- Set DataTable Language to French -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const dataTable = $('#benificiersTable').DataTable({
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.10.25/i18n/French.json'
+                },
+                dom: 'Bfrtip',
+                buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
             });
         });
     </script>

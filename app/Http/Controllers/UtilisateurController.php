@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\utilisateur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 class UtilisateurController extends Controller
 {
     /**
@@ -43,35 +44,24 @@ class UtilisateurController extends Controller
         }
 
         if (Auth::attempt($credentials)) {
-            // Authentication passed
+            $request->session()->put('user',Auth::user());
             return redirect()->route('dashboard'); // Replace with your dashboard route
         }
 
-        // Authentication failed
         return redirect()->back()->withErrors(['login' => 'Invalid login credentials'])
             ->withInput($request->only('username'));
     }
     public function dashboard()
     {
-        // You can add any logic you need here
-
         return view('includes.layoute'); // Assuming your dashboard view is in the 'includes' folder
     }
     public function profile()
     {
-        // Assuming you have a 'profile.blade.php' file in the 'include/profile' directory
-        return view('includes.profile');
+         return view('includes.profile');
     }
-    public function logout()
-    {
-        // Check if the confirmation parameter is set to true
-        if (request('confirm') == 'true') {
-            Auth::logout();
-            return redirect()->route('login'); // Redirect to the login page after logout
-        } else {
-            // Redirect back with a confirmation parameter
-            return redirect()->back()->with('confirm', true);
-        }
+    public function logout(){
+        Session::forget('user');
+        return redirect()->route('login1');
     }
     
 }

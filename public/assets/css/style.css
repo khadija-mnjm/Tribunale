@@ -15,7 +15,7 @@
 
 body {
   font-family: "Open Sans", sans-serif;
-  background: #f6f9ff;
+  background: #f7fff6;
   color: #444444;
 }
 
@@ -795,9 +795,9 @@ h6 {
   align-items: center;
   font-size: 15px;
   font-weight: 600;
-  color: #4154f1;
+  color: #ECF4D6;
   transition: 0.3;
-  background: #f6f9ff;
+  background: #186F65;
   padding: 10px 15px;
   border-radius: 4px;
 }
@@ -805,25 +805,25 @@ h6 {
 .sidebar-nav .nav-link i {
   font-size: 16px;
   margin-right: 10px;
-  color: #4154f1;
+  color:#ECF4D6;
 }
 
 .sidebar-nav .nav-link.collapsed {
-  color: #012970;
-  background: #fff;
+  color: #186F65;
+  background: #ECF4D6;
 }
 
 .sidebar-nav .nav-link.collapsed i {
-  color: #899bbd;
+  color: #186F65;
 }
 
 .sidebar-nav .nav-link:hover {
-  color: #4154f1;
-  background: #f6f9ff;
+  color:#F2FFE9;
+  background: #186F65;
 }
 
 .sidebar-nav .nav-link:hover i {
-  color: #4154f1;
+  color:  #ECF4D6;
 }
 
 .sidebar-nav .nav-link .bi-chevron-down {
@@ -1415,4 +1415,5 @@ h6 {
   margin-top: -8%;
 }
 
-/* test */
+
+

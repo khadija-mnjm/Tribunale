@@ -69,10 +69,9 @@
                       @endforeach
                     </div>
                   @endif
-
+                  
                   <form method="POST" action="{{ route('login') }}" class="row g-3 needs-validation" novalidate>
-                    @csrf <!-- Laravel CSRF token -->
-
+                      @csrf
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Email</label>
                       <div class="input-group has-validation">
