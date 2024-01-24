@@ -28,14 +28,15 @@
           </form>
         </div><!-- End Search Bar -->
         <nav class="header-nav ms-auto">
+          
             <ul class="d-flex align-items-center">
-      
+              
               <li class="nav-item d-block d-lg-none">
                 <a class="nav-link nav-icon search-bar-toggle " href="#">
                   <i class="bi bi-search"></i>
                 </a>
               </li>
-      
+            
               <li class="nav-item dropdown">
       
                 <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
@@ -90,7 +91,7 @@
                   <li>
                     <hr class="dropdown-divider">
                   </li>
-      
+                  
                   <li class="notification-item">
                     <i class="bi bi-info-circle text-primary"></i>
                     <div>
@@ -110,7 +111,7 @@
                 </ul><!-- End Notification Dropdown Items -->
       
               </li><!-- End Notification Nav -->
-      
+             
               <li class="nav-item dropdown">
       
                 <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
@@ -172,76 +173,61 @@
                   <li class="dropdown-footer">
                     <a href="#">Show all messages</a>
                   </li>
-      
+                  
                 </ul><!-- End Messages Dropdown Items -->
       
               </li>
               
                
                 
-              <li class="nav-item dropdown pe-3">
-                <a class="nav-link nav-icon" href="{{ route('profile') }}" data-bs-toggle="dropdown">
-                    <i class="bi bi-person larger-icon"></i> Profile
-                </a>
-            </li>
-      <!-- End Profile Nav
-                <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                  <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                  <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
-                </a>
+              
       
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-                  <li class="dropdown-header">
-                    <h6>Kevin Anderson</h6>
-                    <span>Web Designer</span>
-                  </li>
-                  <li>
-                    <hr class="dropdown-divider">
-                  </li>
+              <a class="custom-select" style="margin-right: 10px;">
+                <div class="select-box">
+                    <img src="{{ session('user')->image }}" alt="Profile" class="rounded-circle" style="width: 40px; height: 50px;">
+                    <span class="span2">
+                        @if(session('user'))
+                            {{ session('user')->nom }} 
+                        @endif
+                    </span>
+                    <i class="bi bi-caret-down"></i>
+                    <div class="options">
+                      <a href="{{ route('profile') }}">
+                          <i class="bi bi-person"></i>
+                          <span>Mon profil</span>
+                      </a>
+                      <hr class="dropdown-divider">
+                      <hr class="dropdown-divider">
+                      <hr class="dropdown-divider">
+                      <a href="{{ route('logout') }}">
+                          <i class="bi bi-box-arrow-right"></i>
+                          <span>Déconnexion</span>
+                      </a>
+                  </div>
+                </div>
+                
+            </a>
+            
       
-                  <li>
-                    <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                      <i class="bi bi-person"></i>
-                      <span>My Profile</span>
-                    </a>
-                  </li>
-                  <li>
-                    <hr class="dropdown-divider">
-                  </li>
-      
-                  <li>
-                    <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                      <i class="bi bi-gear"></i>
-                      <span>Account Settings</span>
-                    </a>
-                  </li>
-                  <li>
-                    <hr class="dropdown-divider">
-                  </li>
-      
-                  <li>
-                    <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                      <i class="bi bi-question-circle"></i>
-                      <span>Need Help?</span>
-                    </a>
-                  </li>
-                  <li>
-                    <hr class="dropdown-divider">
-                  </li>
-      
-                  <li>
-                    <a class="dropdown-item d-flex align-items-center" href="#">
-                      <i class="bi bi-box-arrow-right"></i>
-                      <span>Sign Out</span>
-                    </a>
-                  </li>
-      
-                </ul>
-              </li> -->
+                
+              </li> 
       
             </ul>
           </nav><!-- End Icons Navigation -->
     </header>
     <script src="path/to/explosion-animation.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".custom-select").on("click", function (event) {
+                event.stopPropagation();
+                $(this).find(".options").toggle();
+            });
+
+            $(document).on("click", function () {
+                $(".custom-select .options").hide();
+            });
+        });
+    </script>
 </body>
 </html>

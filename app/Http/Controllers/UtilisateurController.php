@@ -53,15 +53,45 @@ class UtilisateurController extends Controller
     }
     public function dashboard()
     {
-        return view('includes.layoute'); // Assuming your dashboard view is in the 'includes' folder
+        return view('includes.main'); // Assuming your dashboard view is in the 'includes' folder
     }
     public function profile()
     {
-         return view('includes.profile');
+        return view('includes.profile');
     }
     public function logout(){
         Session::forget('user');
         return redirect()->route('login1');
     }
-    
+    public function editProfile()
+    {
+        // Vous pouvez récupérer les données nécessaires pour le formulaire d'édition ici
+        $user = auth()->user(); // Récupère l'utilisateur authentifié
+
+        return view('includes.edit-profile', ['user' => $user]);
+    }
+    public function updateProfile(Request $request)
+    {
+        $request->validate([
+            'fullName' => 'required',
+            'company' => 'required',
+            'job' => 'required',
+            'email' => 'required|email',
+            'phone' => 'nullable', // Ajoutez d'autres règles de validation si nécessaire
+            // ... (ajoutez d'autres champs à valider)
+        ]);
+        $user = auth()->user();
+        $user->nom = $request->input('fullName');
+        $user->prenom = $request->input('company');
+        $user->typeUtilisateur = $request->input('job');
+        $user->login = $request->input('email');
+        if ($request->filled('phone')) {
+            $user->password = bcrypt($request->input('phone'));
+        }
+
+        $user->update();
+        $request->session()->put('user',$user);
+        return redirect()->route('profile')->with('success', 'Profil mis à jour avec succès');
+
+    }
 }

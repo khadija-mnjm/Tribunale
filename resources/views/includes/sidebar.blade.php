@@ -24,20 +24,24 @@
               <span>Dashboard</span>
             </a>
           </li>
-    
-         
-     <li class="nav-item">
-      <a class="nav-link collapsed" href="{{ route('list-dossiers') }}">
-        <i class="ri-list-check"></i>
-        <span>List Dossiers</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link collapsed " href="{{ route('benificiers') }}">
-        <i class="ri-group-line"></i>
-        <span>List Benificier</span>
-      </a>
-    </li>
+          <li class="nav-item">
+            <a class="nav-link collapsed " href="{{ route('avocat') }}">
+              <i class="ri-group-line"></i>
+              <span>List Avocat</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link collapsed " href="{{ route('benificiers') }}">
+              <i class="ri-group-line"></i>
+              <span>List Benificier</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('list-dossiers') }}">
+              <i class="ri-list-check"></i>
+              <span>List Dossiers</span>
+            </a>
+          </li>
           <li class="nav-item">
             <a class="nav-link collapsed" href="pages-contact.html">
               <i class="bi bi-envelope"></i>

@@ -181,7 +181,6 @@ h6 {
   border: 0;
   box-shadow: 0 5px 30px 0 rgba(82, 63, 105, 0.2);
 }
-
 .dropdown-menu .dropdown-header,
 .dropdown-menu .dropdown-footer {
   text-align: center;
@@ -301,11 +300,11 @@ h6 {
 }
 
 .card-title {
-  padding: 30px;
   font-size: 18px;
   font-weight: 500;
   color: #017049;
   font-family: "Poppins", sans-serif;
+  margin-left: 10px;
 }
 .card-title1 {
   padding: 30px;
@@ -336,6 +335,12 @@ h6 {
   padding: 0 20px 20px 20px;
   width: 440px;
   padding-left:20px ;
+}
+.card-body1 {
+  padding: 0 20px 20px 20px;
+  width: 313;
+  padding-left:20px ;
+  padding-top: 15px;
 }
 .card-body2 {
   padding: 0 20px 20px 20px;
@@ -431,7 +436,7 @@ h6 {
 
 /* Bordered Tabs */
 .nav-tabs-bordered {
-  border-bottom: 2px solid #ebeef4;
+  border-bottom: none;
 }
 
 .nav-tabs-bordered .nav-link {
@@ -442,13 +447,21 @@ h6 {
 
 .nav-tabs-bordered .nav-link:hover,
 .nav-tabs-bordered .nav-link:focus {
-  color: #4154f1;
+  color: #005d41;
 }
 
 .nav-tabs-bordered .nav-link.active {
   background-color: #fff;
-  color: #4154f1;
-  border-bottom: 2px solid #4154f1;
+  color: #50623A;
+  border-bottom: 2px solid #645500d8;
+  margin-bottom: 10%;
+}
+.edit{
+  background-color: #fff;
+  color: #50623A;
+  border-bottom: 2px solid #645500d8;
+  padding: 8px;
+  margin-top: 1px;
 }
 
 /*--------------------------------------------------------------
@@ -807,7 +820,9 @@ h6 {
   margin-right: 10px;
   color:#ECF4D6;
 }
-
+.nav-item1{
+  margin-top: 9px;
+}
 .sidebar-nav .nav-link.collapsed {
   color: #186F65;
   background: #ECF4D6;
@@ -1110,30 +1125,38 @@ h6 {
 --------------------------------------------------------------*/
 .profile .profile-card img {
   max-width: 120px;
+  margin-right: 30%;
 }
 
 .profile .profile-card h2 {
   font-size: 24px;
   font-weight: 700;
-  color: #2c384e;
+  color:#557C55  ;
   margin: 10px 0 0 0;
+  margin-right: 30%;
 }
 
 .profile .profile-card h3 {
   font-size: 18px;
+  margin-right: 30%;
+}
+
+.profile .profile-card .social-links {
+
+  margin-right: 100px;
 }
 
 .profile .profile-card .social-links a {
   font-size: 20px;
   display: inline-block;
-  color: rgba(1, 41, 112, 0.5);
+  color: rgba(1, 112, 71, 0.5);
   line-height: 0;
   margin-right: 10px;
   transition: 0.3s;
 }
 
 .profile .profile-card .social-links a:hover {
-  color: #012970;
+  color: #01704b;
 }
 
 .profile .profile-overview .row {
@@ -1142,7 +1165,7 @@ h6 {
 }
 
 .profile .profile-overview .card-title {
-  color: #012970;
+  color: #01705d;
 }
 
 .profile .profile-overview .label {
@@ -1417,3 +1440,8 @@ h6 {
 
 
 
+.photo1{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}

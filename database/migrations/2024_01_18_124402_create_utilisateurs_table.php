@@ -16,6 +16,9 @@ return new class extends Migration
             $table->string('login');
             $table->string('password');
             $table->string('typeUtilisateur');
+            $table->string('image'); // Nullable in case the user might not have an image
+            $table->string('nom');
+            $table->string('prenom');
             $table->timestamps();
         });
     }

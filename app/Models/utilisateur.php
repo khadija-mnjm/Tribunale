@@ -17,6 +17,9 @@ class Utilisateur extends Model implements Authenticatable
         'login',
         'password',
         'typeUtilisateur',
+        'nom',
+        'prenom',
+        'image',
     ];
 
     // Implementing methods from Authenticatable interface

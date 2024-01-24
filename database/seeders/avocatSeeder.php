@@ -28,6 +28,10 @@ class avocatSeeder extends Seeder
             'villeV'=>'zagoura',
             'adresseV'=>'zagoura bureau1'
         ],[
+            'nomV'=>'khadija',
+            'villeV'=>'ouarzazte',
+            'adresseV'=>'ouarzazte bureau1'
+        ],[
             'nomV'=>'fatimzahra',
             'villeV'=>'ouarzazate',
             'adresseV'=>'ouarzazate sididaoud av.M6'

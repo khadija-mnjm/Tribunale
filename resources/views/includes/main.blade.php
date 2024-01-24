@@ -26,6 +26,8 @@
   <link href="assets/css/style.css" rel="stylesheet">
 </head>
 <body>
+  @include('includes.layoute')
+  @section('content')
     <main id="main" class="main">
 
         <div class="pagetitle">
@@ -62,7 +64,7 @@
                       </ul>
                     </div>
     
-                    <div class="card-body">
+                    <div class="card-body1">
                       <h5 class="card-title">Sales <span>| Today</span></h5>
     
                       <div class="d-flex align-items-center">

@@ -16,16 +16,16 @@ class DossierFactory extends Factory
     public function definition()
     {
         return [
-            'numeroD' => fake()->numberBetween(1, 30),
-            'avocat_id' => fake()->numberBetween(8, 13),
-            'commission' => fake()->city, 
+            'numeroD' => fake()->unique()->numberBetween(1, 30),
+            'avocat_id' => fake()->numberBetween(1, 4),
+            'commission' => fake()->word, 
             'dateDossier' => fake()->dateTime, 
             'refJuridique' => fake()->word, 
             'refDecision' => fake()->word,
             'tribunale_id' => fake()->numberBetween(1, 4),
             'benificier_id' => fake()->numberBetween(1, 5),
             'dateAideJustice' => fake()->dateTime,
-            'prix' => fake()->numberBetween(2000, 3500),
+            'prix' => fake()->randomElement([2000,2500,3000,3500]),
             'validate' => fake()->randomElement(['oui', 'non']),
             'refPerfermance' => fake()->word,
             'refEngagement' => fake()->word,

@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('dossiers', function (Blueprint $table) {
             $table->id();
             $table->integer('numeroD');
-            $table->foreignId('avocat_id')->constrained()->onDelete('cascade')->onUpdate('cascade');;
+            $table->foreignId('avocat_id');
             $table->string('commission');
             $table->date('dateDossier');
             $table->string('refJuridique');
             $table->string('refDecision');
-            $table->foreignId('tribunale_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('benificier_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('tribunale_id');
+            $table->foreignId('benificier_id');
             $table->date('dateAideJustice');
             $table->float('prix');
             $table->enum('validate',['oui','non']);

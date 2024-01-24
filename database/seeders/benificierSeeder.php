@@ -37,4 +37,5 @@ class benificierSeeder extends Seeder
             'villeB'=>'zagoura',
         ]]);
     }
+
 }

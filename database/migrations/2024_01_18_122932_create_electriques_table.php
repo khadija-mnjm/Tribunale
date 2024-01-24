@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('electriques', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('consommation_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('consommation_id');
             $table->timestamps();
         });
     }

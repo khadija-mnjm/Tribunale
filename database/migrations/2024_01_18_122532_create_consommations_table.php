@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('consommations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('tribunale_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('tribunale_id');
             $table->date('date');
             $table->float('valeur');
             $table->float('moyenne');

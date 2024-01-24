@@ -70,4 +70,79 @@ label {
     background-color: #7df5b9;
     color: #fff;
 }
+.span2{
+    color: #557C55;
+}
+.nav-tabs-bordered .nav-link.active {
+    background-color: #fff;
+    color: #50623A;
+    border-bottom: 2px solid #645500d8;
+  }
+  
+.image22{
+    width: 260px;
+    height: 240px;
+    align-items: center;
+    margin-left: 40%;
+    border-radius: 50%;
+    border: 1px solid #555;
+}
+.BtnSave{
+    margin-top: 15px;
+    background-color: #99A98F;
+    color: #FFF8DE;
+    border-radius: 10px;
+    border: none;
+    width: 160px;
+    padding: 5px;
+    height: 40px;
+}
 
+.custom-select {
+    position: relative;
+    display: inline-block;
+    width: 200px; /* Adjust the width as needed */
+}
+
+.custom-select select {
+    display: none;
+}
+
+.custom-select .select-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.custom-select .select-box i {
+    margin-left: 8px;
+}
+
+.custom-select .options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    display: none;
+    margin-top: 4px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.custom-select .options a {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+}
+
+.custom-select .options a:hover {
+    background-color: #f0f0f0;
+}

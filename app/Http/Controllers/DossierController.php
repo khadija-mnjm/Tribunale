@@ -23,36 +23,48 @@ class DossierController extends Controller
     {
         return view('dossier.add');
     }
+
     public function store(Request $request)
     {
+    // Obtenir le dernier numéro de dossier dans la base de données
+    $dernierNumero = Dossier::orderBy('numeroD', 'desc')->value('numeroD');
         
-        $validatedData = $request->validate([
-            'numeroD' => 'required|numeric',
-            'avocat_id' => 'required|exists:avocats,id',
-            'commission' => 'required|string',
-            'dateDossier' => 'required|date',
-            'refJuridique' => 'required|string',
-            'refDecision' => 'required|string',
-            'tribunale_id' => 'required|exists:tribunales,id',
-            'benificier_id' => 'required|exists:benificiers,id',
-            'dateAideJustice' => 'required|date',
-            'prix' => 'required|numeric',
-            'validate' => 'required|boolean',
-            'refPerfermance' => 'required|string',
-            'refEngagement' => 'required|string',
-            'refEditions' => 'required|string',
-            'date_ds_aide_etat' => 'required|date',
-        ]);
+    // Vérifier si le dernier numéro appartient à l'année en cours
+   // $anneeEnCours = date('Y');
+   // $derniereAnnee = substr($dernierNumero, 0, 4);
+    $nouveauNumero = $dernierNumero + 1;
+/*
+    if ($derniereAnnee == $anneeEnCours) {
+        // Incrémenter le numéro de dossier
+        $dernierNumero = intval(substr($dernierNumero, 5));
+        $nouveauNumero = $anneeEnCours . '-' . str_pad($dernierNumero + 1, 4, '0', STR_PAD_LEFT);
+    } else {
+        // Commencer une nouvelle séquence de numérotation pour la nouvelle année
+        $nouveauNumero = $anneeEnCours . '-0001';
+    }*/
+   
+    // Créer un nouveau dossier avec les données du formulaire
+    $dossier = new Dossier();
+    $dossier->numeroD = $nouveauNumero;
+    $dossier->avocat_id = $request->input('avocat_id');
+    $dossier->commission = 'marrakech';
+    $dossier->dateDossier = date('Y-m-d');
+    $dossier->refJuridique = $request->input('refJuridique');
+    $dossier->refDecision = $request->input('refDecision');
+    $dossier->tribunale_id = $request->input('tribunale_id');
+    $dossier->benificier_id = $request->input('benificier_id');
+    $dossier->dateAideJustice = $request->input('dateAideJustice');
+    $dossier->prix = $request->input('prix');
+    
+    $dossier->refPerfermance = ' ';
+    $dossier->refEngagement = ' ';
+    $dossier->refEditions = ' ';
+    $dossier->date_ds_aide_etat= date('Y-m-d');
+    $dossier->save();
 
-        try {
-            $validatedData['validate'] = false; 
-            Dossier::create($validatedData);
-        
-            return redirect()->route('dashboard')->with('success', 'Dossier added successfully');
-        } catch (\Exception $e) {
-            return redirect()->route('submit.form')->with('error', 'Error adding dossier. Please try again.');
-        }
-    }
+    // Rediriger vers la page de liste des dossiers ou vers une autre page de votre choix
+    return redirect()->route('list-dossiers');
+}
     public function show(dossier $dossier)
     {
         return view('dossier.show', compact('dossier'));
