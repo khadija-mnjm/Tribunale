@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\electrique;
 use Illuminate\Http\Request;
-
+use App\Models\tribunale;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\notificationsMail;
 class ElectriqueController extends Controller
 {
     /**
@@ -14,7 +16,7 @@ class ElectriqueController extends Controller
      */
     public function index()
     {
-        //
+        return view('Electrique.layoute1');
     }
 
     /**
@@ -22,64 +24,36 @@ class ElectriqueController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+ 
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function store(Request $request)
     {
-        //
-    }
+        
+        $request->validate([
+            'refCompteur' => 'required|string',
+            'dateCompteur' => 'required|date',
+            'tribunal' => 'required|exists:tribunales,id',
+            'valeur' => 'required|numeric',
+            'etat' => 'required|string',
+            'etatGeneral' => 'required|in:oui,non',
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\electrique  $electrique
-     * @return \Illuminate\Http\Response
-     */
-    public function show(electrique $electrique)
-    {
-        //
-    }
+        
+        $electrique = new Electrique([
+            'refCompteur' => $request->input('refCompteur'),
+            'dateCompteur' => $request->input('dateCompteur'),
+            'tribunal_id' => $request->input('tribunal'), 
+            'valeur' => $request->input('valeur'),
+            'etat' => $request->input('etat'),
+            'etatGeneral' => $request->input('etatGeneral'),
+        ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\electrique  $electrique
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(electrique $electrique)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\electrique  $electrique
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, electrique $electrique)
-    {
-        //
-    }
+        $electrique->save();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\electrique  $electrique
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(electrique $electrique)
-    {
-        //
+        
+        return redirect()->route('nom_de_la_route_vers_vue_appropriee');
     }
+    
 }

@@ -11,20 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('consommations', function (Blueprint $table) {
+        Schema::create('compteurs', function (Blueprint $table) {
             $table->id();
+            $table->float('refCompteur')->nullable();
             $table->foreignId('tribunale_id');
             $table->date('date');
             $table->float('valeur');
-            $table->float('moyenne');
-            $table->boolean('etat');
+            $table->enum('type', ['eau', 'electrique'])->default('electrique');
+            $table->tinyInteger('etat')->default(0);
+            $table->float('moyenne')->default(0);
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
-     */
+    */
     public function down(): void
     {
         Schema::dropIfExists('consommations');

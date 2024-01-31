@@ -17,6 +17,7 @@ class Utilisateur extends Model implements Authenticatable
         'login',
         'password',
         'typeUtilisateur',
+        'bureau_id',
         'nom',
         'prenom',
         'image',

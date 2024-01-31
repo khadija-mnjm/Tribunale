@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class electrique extends Model
 {
     use HasFactory;
+    protected $fillable = ['refCompteur', 'dateCompteur', 'tribunal_id', 'valeur', 'etat', 'etatGeneral'];
 }

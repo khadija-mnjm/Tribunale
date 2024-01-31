@@ -26,6 +26,13 @@ class AvocatController extends Controller
 
             return redirect()->route('avocat')->with('success', 'avocat added successfully!');
         }
+        public function  destroy(Request $request){
+            $data=avocat::find($request->id);
+            if($data){
+                $data->delete();
+                return redirect()->route('avocat')->with('status',"la supprition effecter avec succe");;
+            }
+        } 
    
     
 }

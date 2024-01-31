@@ -9,11 +9,14 @@ class CheckUserSession
 {
     public function handle(Request $request, Closure $next)
     {
-        if (Session::has('user')) {
+        // Add your authentication logic here
+        if ($request->user() && ($request->user()->typeUtilisateur === 'admin' || $request->user()->typeUtilisateur === 'utilisateur' || $request->user()->typeUtilisateur === 'resElectrique')) {
             return $next($request);
         }
 
-        return redirect()->route('login1');
+        // Redirect or handle unauthorized access
+        return redirect('login1'); 
     }
 }
+
 ?>

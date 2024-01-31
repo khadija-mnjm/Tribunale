@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofGJl5z8EVOlH6HIbbV7b6vA/x1KVoq1Sk" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.18.0/font/bootstrap-icons.css" rel="stylesheet">
+
     <style>
+
       /* Votre style CSS actuel */
       .sidebar-nav .nav-item.active {
           background-color: #007bff;
@@ -42,24 +46,15 @@
               <span>List Dossiers</span>
             </a>
           </li>
+          
           <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-contact.html">
-              <i class="bi bi-envelope"></i>
-              <span>Contact</span>
+            <a class="nav-link collapsed" href="{{ route('statistique') }}">
+              <i class="bi bi-bar-chart"></i>
+              <span>Statistique</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-contact.html">
-              <i class="bi bi-chat"></i>
-              <span>Messages </span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-contact.html">
-              <i class="bi bi-camera-reels-fill"></i>
-              <span>Meetting  </span>
-            </a>
-          </li>
+         
+        
           <li class="nav-item">
             <a class="nav-link collapsed"  href="{{ route('logout') }}">
               <i class="bi bi-box-arrow-left bi-2x"></i>
@@ -79,16 +74,12 @@
 
             for (var i = 0; i < navItems.length; i++) {
                 navItems[i].addEventListener('click', function () {
-                    // Supprimer la classe 'active' de tous les éléments
                     for (var j = 0; j < navItems.length; j++) {
                         navItems[j].classList.remove('active');
-                        // Retirer la classe 'collapsed' de tous les éléments
                         navItems[j].classList.remove('collapsed');
                     }
 
-                    // Ajouter la classe 'active' à l'élément cliqué
                     this.classList.add('active');
-                    // Ajouter la classe 'collapsed' à l'élément cliqué
                     this.classList.add('collapsed');
                 });
             }

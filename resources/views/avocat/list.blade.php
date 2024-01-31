@@ -1,32 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title')</title>
-     <!-- Include DataTables CSS and JS -->
-     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"/>
-     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.0/css/buttons.dataTables.min.css"/>
-     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css"/>
-     
-     <!-- Include Simple DataTables CSS and JS -->
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@2.6.2/dist/style.css">
-     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@2.6.2/dist/simple-datatables.js"></script>
- 
-     <!-- Include Moment.js for date formatting -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
- 
-     <!-- Export Buttons JS -->
-     <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.0.0/js/dataTables.buttons.min.js"></script>
-     <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.html5.min.js"></script>
-     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
- 
-</head>
-<body>
-    @include('includes.layoute')
+@include('includes.layoute')
     @section('content')
-    <footer>
+    <script>
+        function deleteAvocat(id) {
+            if (confirm('Are you sure you want to delete this avocat?')) {
+                // Send an AJAX request to delete the avocat
+                fetch(/avocats/${id}, {
+                    method: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                    },
+                    // Add additional options if needed
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Optionally handle success response
+                    console.log(data);
+                    // Reload the page or update the table without refreshing if necessary
+                    location.reload(); // This will reload the page
+                })
+                .catch(error => {
+                    // Optionally handle error response
+                    console.error(error);
+                });
+            }
+        }
+    </script>
+    
         <div class="container2">
             <main id="main" class="main">
                 <div class="pagetitle1">
@@ -50,6 +51,7 @@
                                                 <th>Nom</th>
                                                 <th>ville d'avocact</th>
                                                 <th>Adresse </th>
+                                                <th>Actions  </th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -59,6 +61,15 @@
                                                     <td>{{ $avocat->nomV }}</td>
                                                     <td>{{ $avocat->villeV }}</td>
                                                     <td>{{ $avocat->adresseV }}</td>
+                                                    <td>
+                                                       
+                                                        <a href="{{route('avocat.destroy',$avocat->id)}}"><lord-icon
+                                                            src="https://cdn.lordicon.com/skkahier.json"
+                                                            trigger="hover"
+                                                            style="width:50px;height:50px;color:green;">
+                                                        </lord-icon></a>
+
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -70,6 +81,3 @@
                 </div>
             </main>
         </div>
-    </footer>
-</body>
-</html>

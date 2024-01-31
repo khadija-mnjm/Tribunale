@@ -34,4 +34,5 @@ class BenificierController extends Controller
 
         return redirect()->route('benificiers')->with('success', 'Benificier added successfully!');
     }
+   
 }

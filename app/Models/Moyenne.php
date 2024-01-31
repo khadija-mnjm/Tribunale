@@ -5,7 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class consommation extends Model
+class Moyenne extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'mois',
+        'pourcentage',
+        'moyenne',
+    ];
 }

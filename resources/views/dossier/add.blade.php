@@ -7,54 +7,23 @@
     $avocats = Avocat::pluck('nomV', 'id');
     $benificiers = Benificier::pluck('nomB', 'id');
     $tribunales = Tribunale::pluck('nomT', 'id');
-
-
 @endphp
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title')</title>
-    
-    <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-  
-    <!-- Google Fonts -->
-    <link href="https://fonts.gstatic.com" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-  
-    <!-- Vendor CSS Files -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
-    <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
-  
-    <!-- Template Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet">
+@include('includes.layoute')
+    @section('content')
+    <main id="main" class="main">
     <script>
+            $(function() {
+          $('input[name="avocat_id"]').autocomplete({
+              source: {!! json_encode($avocats->toArray()) !!}
+          });
+      });
       $(function() {
-    $('input[name="avocat_id"]').autocomplete({
-        source: {!! json_encode($avocats->toArray()) !!}
-    });
-});
-$(function() {
-    $('input[name="benificier_id"]').autocomplete({
-        source: {!! json_encode($benificiers->toArray()) !!}
-    });
-});
+          $('input[name="benificier_id"]').autocomplete({
+              source: {!! json_encode($benificiers->toArray()) !!}
+          });
+      });
     </script>
-</head>
-<body>
-  @include('includes.layoute')
-  @section('content')
-    <footer>
-        <main id="main" class="main">
+         
         <div class="pagetitle1">
         <div class="cardadd">
             <div class="card-bodyadd">
@@ -66,20 +35,20 @@ $(function() {
                   <div class="col-md-6">
                     <label>nom d'avocat :</label>
                     <input type="text" name="avocat_id" class="form-control" list="avocats-list" autocomplete="off">
-<datalist id="avocats-list">
-    @foreach($avocats as $id => $nomV)
-        <option name="avocat_id" value="{{ $id }}">{{$nomV}}</option>
-    @endforeach
-</datalist>
-                  </div>
-                  <div class="col-md-6">
-                    <label>Nom de benificier :</label>
-                    <input type="text" name="benificier_id" class="form-control" list="beneficiaires-list" autocomplete="off">
-<datalist name="benificier_id" id="beneficiaires-list">
-    @foreach($benificiers as $id => $nomB)
-        <option name="benificier_id" value="{{ $id }}">{{ $nomB }}</option>
-    @endforeach
-</datalist>
+                      <datalist id="avocats-list">
+                          @foreach($avocats as $id => $nomV)
+                              <option name="avocat_id" value="{{ $id }}">{{$nomV}}</option>
+                          @endforeach
+                      </datalist>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <label>Nom de benificier :</label>
+                                          <input type="text" name="benificier_id" class="form-control" list="beneficiaires-list" autocomplete="off">
+                      <datalist name="benificier_id" id="beneficiaires-list">
+                          @foreach($benificiers as $id => $nomB)
+                              <option name="benificier_id" value="{{ $id }}">{{ $nomB }}</option>
+                          @endforeach
+                      </datalist>
                   </div>
                   
                   <div class="col-md-12">
@@ -124,7 +93,4 @@ $(function() {
         
               </div>
             </div>
-    </footer>
-  
-</body>
-</html>
+          </main>

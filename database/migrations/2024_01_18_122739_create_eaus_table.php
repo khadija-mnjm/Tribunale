@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('eaus', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('consommation_id');
+            $table->foreignId('compteur_id');
             $table->timestamps();
         });
     }

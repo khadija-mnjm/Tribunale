@@ -16,14 +16,29 @@ class DossierController extends Controller
      { 
         $dossiers = dossier::with('avocat','tribunale')->get();
         //dd($dossiers->toArray());
-        return view('dossier.list', ['dossiers' => $dossiers]);    
+        return view('dossier.list', ['dossiers' => $dossiers]); 
+         
      }
    
     public function addDossier()
     {
         return view('dossier.add');
     }
-
+    public function searchDossiers(Request $request)
+    {
+       $query = $request->input('query');
+    
+       $dossiers = Dossier::where('nom_avocat', 'LIKE', "%$query%")
+           ->orWhere('nom_benificier', 'LIKE', "%$query%")
+           ->orWhere('numeroD', 'LIKE', "%$query%")
+           ->orWhere('ref_dossier', 'LIKE', "%$query%")
+           ->orWhere('date_dossier', 'LIKE', "%$query%")
+           ->get();
+    
+           return view('statistique.plus',['dossiers' => $dossiers,
+        ]);
+    }
+    
     public function store(Request $request)
     {
     // Obtenir le dernier numéro de dossier dans la base de données

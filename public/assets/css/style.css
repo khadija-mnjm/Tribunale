@@ -135,6 +135,7 @@ h6 {
   color: #012970;
 }
 
+
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
@@ -145,7 +146,7 @@ h6 {
   right: 15px;
   bottom: 15px;
   z-index: 99999;
-  background: #4154f1;
+  background:#43766C;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -159,7 +160,7 @@ h6 {
 }
 
 .back-to-top:hover {
-  background: #6776f4;
+  background: #05a465;
   color: #fff;
 }
 
@@ -181,6 +182,7 @@ h6 {
   border: 0;
   box-shadow: 0 5px 30px 0 rgba(82, 63, 105, 0.2);
 }
+
 .dropdown-menu .dropdown-header,
 .dropdown-menu .dropdown-footer {
   text-align: center;
@@ -334,6 +336,11 @@ h6 {
 .card-body {
   padding: 0 20px 20px 20px;
   width: 440px;
+  padding-left:20px ;
+}
+.card-bodydash {
+  padding: 0 20px 20px 20px;
+  width: 320px;
   padding-left:20px ;
 }
 .card-body1 {
@@ -820,6 +827,11 @@ h6 {
   margin-right: 10px;
   color:#ECF4D6;
 }
+.sidebar-nav .nav-link lord-icon {
+  font-size: 16px;
+  margin-right: 10px;
+  color:#ECF4D6;
+}
 .nav-item1{
   margin-top: 9px;
 }
@@ -949,17 +961,47 @@ h6 {
 .dashboard .sales-card .card-icon {
   color: #4154f1;
   background: #f6f6fe;
+  padding: 10px;
+  border-radius: 50%;
 }
 
 .dashboard .revenue-card .card-icon {
   color: #2eca6a;
   background: #e0f8e9;
+  padding: 10px;
+  border-radius: 50%;
+}
+.dashboard .verifier-card .card-icon {
+  color: #00027a;
+  background: #c8f6ff;
+  padding: 10px;
+  border-radius: 50%;
+}
+.dashboard .revenue-card {
+  
+  padding: 15px;
 }
 
+.dashboard .revenue-card1 {
+  
+  padding: 0px;
+}
 .dashboard .customers-card .card-icon {
   color: #ff771d;
-  background: #ffecdf;
+  background:#F9EFDB;
+  padding: 7px;
 }
+.dashboard .revenue-card1 .card-icon{
+  
+  color: #ff771d;
+  background:#d8ffd2;
+  padding: 7px;
+}
+.dashboard .customers-card {
+  
+  padding: 10px;
+}
+
 
 /* Activity */
 .dashboard .activity {
@@ -1430,7 +1472,7 @@ h6 {
 }
 .larger-icon {
   font-size: 1.4em;
-  color: #2f26a6; /* Adjust the font size as needed */
+  color: #2f26a6; 
 }
 .btnExport{
   margin-left: 20px;
@@ -1444,4 +1486,18 @@ h6 {
   width: 20px;
   height: 20px;
   border-radius: 50%;
+}
+
+.ps-32 {
+  display: flex;
+  margin-left: 10px;
+}
+
+.card5 {
+  margin-bottom: 30px;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color:rgb(252, 255, 249) ;
+  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
 }
